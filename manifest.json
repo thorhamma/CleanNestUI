@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+
+  "name": "Clean Nest UI",
+  "description": "Removes Banners",
+  "version": "1.0",
+  "author": "Cassidy Keyser",
+
+  "permissions": [
+    "contextMenus",
+    "activeTab"
+  ],
+
+  "icons": {
+    "16": "images/16icon.png",
+    "48": "images/48icon.png",
+    "128": "images/128icon.png"
+  },
+
+  "background": {
+    "scripts": ["event.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+		"run_at": "document_start",
+		"all_frames": true,
+		"matches": ["https://home.nest.com/*"],
+		"js": [
+			"content_script.js"
+      ]
+    }
+  ]
+
+}
